@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/nbp-pl",
   "title": "Nbp Pl",
   "description": "Narodowy Bank Polski (National Bank of Poland) Web API MCP. Keyless.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "websiteUrl": "https://pipeworx.io/packs/nbp-pl",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-nbp-pl",
