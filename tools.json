@@ -1,0 +1,84 @@
+[
+  {
+    "name": "exchange_rate_table",
+    "description": "Full NBP exchange-rate table of PLN rates for many currencies at once. Pick a table: A = major currencies (mid-rate), B = other/minor currencies (mid-rate), C = bid/ask trading rates for the major set. Rates are PLN per 1 unit of each currency (per 100 for some minor units). Defaults to the latest published table; optionally pass a single date (YYYY-MM-DD) or last_n for the N most recent tables. Weekends/Polish holidays have no data (404).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "table": {
+          "type": "string",
+          "description": "Table letter: \"A\" (major mid), \"B\" (other mid), or \"C\" (bid/ask). Default \"A\"."
+        },
+        "date": {
+          "type": "string",
+          "description": "Single publication date, YYYY-MM-DD, e.g. \"2026-05-29\". Must be a working day or it 404s."
+        },
+        "last_n": {
+          "type": "integer",
+          "description": "Return the N most recent tables instead of just today. Ignored if date is given."
+        }
+      }
+    }
+  },
+  {
+    "name": "currency_rate",
+    "description": "PLN exchange rate for one currency over time. Specify the table (A/B for mid-rate, C for bid/ask) and a 3-letter ISO 4217 code (e.g. USD, EUR, GBP, CHF, JPY). Defaults to the latest rate; optionally pass a single date, last_n recent points, or a start_date/end_date window (max ~93 days, working days only). Use this for one currency; use exchange_rate_table for the whole list.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "table": {
+          "type": "string",
+          "description": "Table letter: \"A\" or \"B\" (mid-rate) or \"C\" (bid/ask). Default \"A\"."
+        },
+        "code": {
+          "type": "string",
+          "description": "ISO 4217 currency code, e.g. \"USD\", \"EUR\", \"GBP\"."
+        },
+        "date": {
+          "type": "string",
+          "description": "Single date, YYYY-MM-DD. Must be a working day or it 404s."
+        },
+        "last_n": {
+          "type": "integer",
+          "description": "Return the N most recent rates. Ignored if date or start_date is given."
+        },
+        "start_date": {
+          "type": "string",
+          "description": "Window start, YYYY-MM-DD. Pair with end_date. Max range ~93 days."
+        },
+        "end_date": {
+          "type": "string",
+          "description": "Window end, YYYY-MM-DD. Used with start_date."
+        }
+      },
+      "required": [
+        "code"
+      ]
+    }
+  },
+  {
+    "name": "gold_price",
+    "description": "NBP accounting price of gold (cena złota): PLN per 1 gram of pure gold (1000 fineness). Defaults to the latest published price; optionally pass a single date, last_n recent points, or a start_date/end_date window (max ~93 days, working days only). Weekends/Polish holidays have no data (404).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "type": "string",
+          "description": "Single date, YYYY-MM-DD. Must be a working day or it 404s."
+        },
+        "last_n": {
+          "type": "integer",
+          "description": "Return the N most recent prices. Ignored if date or start_date is given."
+        },
+        "start_date": {
+          "type": "string",
+          "description": "Window start, YYYY-MM-DD. Pair with end_date. Max range ~93 days."
+        },
+        "end_date": {
+          "type": "string",
+          "description": "Window end, YYYY-MM-DD. Used with start_date."
+        }
+      }
+    }
+  }
+]
