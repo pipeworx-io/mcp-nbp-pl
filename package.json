@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-nbp-pl",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Narodowy Bank Polski (National Bank of Poland) Web API MCP. Keyless.",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "nbp-pl",
     "gatewaySlug": "nbp-pl",
-    "sourceHash": "v1-df0fe0ee5732ec7e05f46407b580db0c3c5c563c386151b06006f8075c9d7281",
-    "sourceCommit": "5c89d6abb778d45da5d92002eb251978622bedf9"
+    "sourceHash": "v1-7e9eb2b127814bb3127c29cac6e120e1e639037ef6b787c73da72a1f0c67157d",
+    "sourceCommit": "56cf550e46fed96c0101a3877ccaf8357eecf016"
   }
 }
